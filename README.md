@@ -2,6 +2,8 @@
 The project is to explore ML approaches to match singers (Or find singer) for audio files.   
 This classification task is also known as Artist Identification in Music Information Retrieval field and Voice Recognition in Speech Recognition field.
 
+## Preparations
+SingerMatch uses [Melodia](https://www.upf.edu/web/mtg/melodia) plugin to do melody detection, please follow the link to install it first. This library is only supported by 32-bit Python. All other dependencies can be installed via pip.
 
 ## Dataset  
 We will be using the [artist20](https://labrosa.ee.columbia.edu/projects/artistid/) dataset provided by LabROSA. This is a dataset of six albums by each of 20 artists, making a total of 1,413 tracks (~100 hours).   
