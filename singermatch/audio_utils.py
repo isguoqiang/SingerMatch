@@ -19,6 +19,7 @@ class AudioUtils(object):
         librosa.display.specshow(cqt)
         plt.axis('off')
         plt.savefig(img_path, bbox_inches='tight', pad_inches=0)
+        plt.close()
 
     #
     # extract vocal from audio data

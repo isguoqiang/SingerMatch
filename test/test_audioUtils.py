@@ -7,15 +7,15 @@ import os
 class TestAudioUtils(TestCase):
     def setUp(self) -> None:
         self.utils = AudioUtils()
-    #
-    # def test_save_spectrogram(self):
-    #     self.utils.save_spectrogram('resources/test.mp3', 'resources/test.png')
-    #     self.assertTrue(os.path.exists('resources/test.png'))
 
-    # def test_load_vocal_audio(self):
-    #     y, sr = librosa.load('resources/test.mp3')
-    #     y, sr = self.utils.load_vocal_audio(y, sr)
-    #     self.assertTrue(len(y) > 0)
+    def test_save_spectrogram(self):
+        self.utils.save_spectrogram('resources/test.mp3', 'resources/test.png')
+        self.assertTrue(os.path.exists('resources/test.png'))
+
+    def test_load_vocal_audio(self):
+        y, sr = librosa.load('resources/test.mp3')
+        y, sr = self.utils.load_vocal_audio(y, sr)
+        self.assertTrue(len(y) > 0)
 
     def test_save_processed_audio(self):
         self.utils.save_processed_audio('resources/test.mp3', 'resources/test_vocal.wav')
