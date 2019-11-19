@@ -6,7 +6,7 @@ import os
 import math
 from matplotlib import pyplot as plt
 import numpy as np
-
+from ext.HTK import HTKFile
 
 class AudioUtils(object):
     def __init__(self):
@@ -74,3 +74,9 @@ class AudioUtils(object):
             soundfile.write(fp, yc, sr)
             res.append(fp)
         return res
+
+    def read_mfcc(self, htk_path: str):
+        htk_reader = HTKFile()
+        htk_reader.load(htk_path)
+        result = np.array(htk_reader.data)
+        return result

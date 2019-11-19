@@ -61,3 +61,14 @@ class Routines(object):
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
                 self.utils.save_processed_audio(input_path, output_path)
                 print("line {}, complete song {}".format(count, l))
+
+    # TODO
+    def generate_dataset(self, nsamples: int):
+        X = []
+        y = []
+        with open(self.original_mp3_dir+'/all.list', 'r') as f:
+            for l in f:
+                l = '/'+l.strip()
+                label = l.split('/')[0]
+                htk_path = self.mfcc_dir+l+'.htk'
+                data = self.utils.read_mfcc(htk_path)

@@ -2,6 +2,8 @@ from unittest import TestCase
 from singermatch.audio_utils import AudioUtils
 import librosa
 import os
+from ext.HTK import HTKFile
+import numpy as np
 
 
 class TestAudioUtils(TestCase):
@@ -28,3 +30,7 @@ class TestAudioUtils(TestCase):
         self.assertTrue(os.path.exists('resources/test_2.wav'))
         self.assertTrue(os.path.exists('resources/test_3.wav'))
         self.assertTrue(os.path.exists('resources/test_4.wav'))
+
+    def test_read_mfcc(self):
+        data = self.utils.read_mfcc('resources/Here_Comes_The_Sun.htk')
+        self.assertEqual(data.shape, (11592, 20))
