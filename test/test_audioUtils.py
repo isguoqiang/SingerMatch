@@ -7,7 +7,7 @@ import numpy as np
 
 
 class TestAudioUtils(TestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         self.utils = AudioUtils()
 
     def test_save_spectrogram(self):

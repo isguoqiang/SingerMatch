@@ -12,7 +12,7 @@ class AudioUtils(object):
     def __init__(self):
         pass
 
-    def save_spectrogram(self, mp3_path: str, img_path: str):
+    def save_spectrogram(self, mp3_path, img_path):
         y, sr = librosa.load(mp3_path,sr=44100)
         cqt = librosa.amplitude_to_db(np.abs(librosa.cqt(y, sr=sr)), ref=np.max)
         plt.figure(figsize=(6, 4))
@@ -56,13 +56,13 @@ class AudioUtils(object):
                 new_y.append(s)
         return np.array(new_y), sr
 
-    def save_processed_audio(self, input_path: str, output_path: str):
+    def save_processed_audio(self, input_path, output_path):
         y, sr = librosa.load(input_path)
         y, sr = self.melodia_filter(y, sr)
         y, sr = self.load_vocal_audio(y, sr)
         soundfile.write(output_path, y, sr)
 
-    def save_sliced_audio(self, input_path: str, output_prefix: str, interval=30):
+    def save_sliced_audio(self, input_path, output_prefix, interval=30):
         y, sr = librosa.load(input_path)
         y, sr = self.melodia_filter(y, sr)
         size = math.ceil(len(y) / (interval * sr))
@@ -75,7 +75,7 @@ class AudioUtils(object):
             res.append(fp)
         return res
 
-    def read_mfcc(self, htk_path: str):
+    def read_mfcc(self, htk_path):
         htk_reader = HTKFile()
         htk_reader.load(htk_path)
         result = np.array(htk_reader.data)

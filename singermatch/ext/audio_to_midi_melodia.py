@@ -192,8 +192,10 @@ def audio_to_midi_melodia(infile, outfile, bpm, smooth=0.25, minduration=0.1,
     print("Converting Hz to MIDI notes...")
     midi_pitch = hz2midi(pitch)
 
+
     # segment sequence into individual midi notes
     notes = midi_to_notes(midi_pitch, fs, hop, smooth, minduration)
+    #print(notes)
 
     # save note sequence to a midi file
     print("Saving MIDI to disk...")

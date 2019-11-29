@@ -4,7 +4,6 @@ from sklearn.mixture import GaussianMixture
 from routines import Routines
 import configparser
 
-
 config = configparser.ConfigParser()
 config.read('../system.ini')
 routines = Routines(config)
